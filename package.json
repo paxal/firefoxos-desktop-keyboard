@@ -1,0 +1,10 @@
+{
+    "dependencies": {
+        "gulp": "3.x",
+        "gulp-rename": "*",
+        "gulp-run": "*",
+        "gulp-concat": "*",
+        "del": "*",
+        "gulp-changed": "*"
+    }
+}

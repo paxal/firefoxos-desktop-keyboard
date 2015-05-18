@@ -1,0 +1,36 @@
+{
+    "name": "Desktop keyboard",
+    "version": "0.1.0",
+    "description": "Allows you to send desktop keyboard commands",
+    "type": "privileged",
+    "role": "input",
+    "launch_path": "/settings.html",
+    "developer": {
+        "name": "Cyril Pascal",
+        "url": "https://twitter.com/paxal"
+    },
+    "permissions": {
+        "input": {
+            "description": "To send key events"
+        }
+    },
+    "icons": {
+        "80":"/media/icons/80.png",
+        "128": "/media/icons/128.png",
+        "512": "/media/icons/512.png"
+    },
+    "inputs": {
+        "desktop-us": {
+            "launch_path": "/index_en-us.html",
+            "name": "Desktop (US)",
+            "description": "US Keyboard layout with desktop features",
+            "types": ["text"]
+        },
+        "desktop-fr": {
+            "launch_path": "/index_fr-fr.html",
+            "name": "Desktop (FR)",
+            "description": "FR Keyboard layout with desktop features",
+            "types": ["text"]
+        }
+    }
+}

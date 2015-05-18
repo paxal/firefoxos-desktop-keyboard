@@ -1,0 +1,45 @@
+{% macro buildKeyboard(keyboard) %}
+    {% import _self as kbd %}
+    <div id="keyboard">
+    {#<div class="line" id="d">#}
+        {#<button class="key">test</button>#}
+    {#</div>#}
+    {% spaceless %}
+        {{ kbd.buildLine(keyboard.top) }}
+        {% for name, panel in keyboard.panels %}
+            {{ kbd.buildPanel(panel, name) }}
+        {% endfor %}
+        {{ kbd.buildLine(keyboard.bottom) }}
+    {% endspaceless %}
+    </div>
+{% endmacro %}
+
+{% macro buildPanel(panel, name) %}
+    {% import _self as kbd %}
+    <div class="panel" data-panel="{{ name }}">
+        {% for line in panel %}
+            {{ kbd.buildLine(line) }}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro buildLine(line) %}
+    {% import _self as kbd %}
+    <div class="line">
+        {% for key in line %}
+            {{ kbd.buildKey(key) }}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro buildKey(key) %}
+    <button
+            class="key {{ key.classes|join(" ") }}"
+            {% for name, value in key.dataAttributes %}
+                data-{{ name }}="{{ value }}"
+            {% endfor %}
+            data-name="{{ key.name }}"
+            >
+        {{ key.text }}
+    </button>
+{% endmacro %}

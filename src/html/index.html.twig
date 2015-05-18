@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+    <script src="js/all.js" defer="defer"></script>
+    <link rel="stylesheet" href="styles/keyboard.css" type="text/css" />
+{% endblock %}
+
+{% block title 'Desktop Keyboard' %}
+
+{% block body %}
+    <div id="keyboard" class="alpha" data-active-panel="alpha">
+        {% import 'macro/keyboard.html.twig' as kbd %}
+        {{ kbd.buildKeyboard(getKeyboard(keyboardName)) }}
+    </div>
+{% endblock %}

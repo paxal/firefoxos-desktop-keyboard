@@ -1,0 +1,87 @@
+html {
+    font-size: 10px;
+    pointer-events: none;
+}
+
+body {
+    margin: 0;
+}
+
+#keyboard {
+    width: 100%;
+    /*height: 20rem;*/
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    pointer-events: auto;
+}
+
+.key {
+    background-color: #333;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0.2rem;
+    padding: 0.2rem 0;
+}
+
+.key:active {
+    background-color: #666;
+}
+
+.line {
+    display: flex;
+    flex-flow: row;
+}
+
+.line .key {
+    flex: 1;
+    text-align: center;
+}
+
+.key[data-name="spacebar"] {
+    flex: 6;
+}
+
+.key[data-name="return"] {
+    flex: 2;
+}
+
+.key[data-name="spacer"] {
+    visibility: hidden;
+    flex: .2;
+}
+
+.key[data-toggle="1"], .key[data-toggle="2"] {
+    color: #ddddff;
+    text-shadow: 0 0 .2rem #fff;
+}
+.key[data-toggle="2"] {
+    text-decoration: underline;
+}
+
+.panel[data-panel] {
+    display: none;
+}
+
+#keyboard[data-active-panel="123_alt_1"] .panel[data-panel="123_alt_1"],
+#keyboard[data-active-panel="alpha"] .panel[data-panel="alpha"],
+#keyboard[data-active-panel="123"] .panel[data-panel="123"] {
+    display: block;
+}
+
+*[data-name="123"], *[data-name="abc"] {
+    display: none;
+}
+
+#keyboard[data-active-panel="alpha"] *[data-name="123"] {
+    display: block;
+}
+
+#keyboard[data-active-panel="123"] *[data-name="abc"],
+#keyboard[data-active-panel="123_alt_1"] *[data-name="abc"] {
+    display: block;
+}
+
+#keyboard[data-shift="1"] .key[data-charcode] {
+    text-transform: uppercase;
+}
